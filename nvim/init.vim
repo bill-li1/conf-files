@@ -39,8 +39,12 @@ inoremap uh <esc>
 set guicursor=
 set nowrap!
 
- "change leader
+" change leader
 let mapleader = ","
+
+" smart search
+set ignorecase
+set smartcase
 
 " open NERDTree automatically
 autocmd StdinReadPre * let s:std_in=1

@@ -1,3 +1,5 @@
+# located in ~/.config/alacritty/alacritty.yml
+
 font:
   normal:
     family: MesloLGS NF

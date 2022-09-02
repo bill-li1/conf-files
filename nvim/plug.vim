@@ -9,18 +9,22 @@ Plug 'tpope/vim-rhubarb'
 
 if has("nvim")
   Plug 'morhetz/gruvbox'
+  Plug 'scrooloose/nerdtree'
   Plug 'alvan/vim-closetag'
   Plug 'sainnhe/gruvbox-material'
   Plug 'shaunsingh/solarized.nvim'
   Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
   Plug 'hoob3rt/lualine.nvim'
+	Plug 'lervag/vimtex'
   Plug 'xiyaowong/nvim-transparent'
   Plug 'Yggdroot/indentLine'
   Plug 'kristijanhusak/defx-git'
   Plug 'kristijanhusak/defx-icons'
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'windwp/nvim-ts-autotag'
   Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'yarn install'}
   Plug 'godlygeek/tabular'
+	Plug 'KeitaNakamura/tex-conceal.vim'
   Plug 'plasticboy/vim-markdown'
   Plug 'neovim/nvim-lspconfig'
   Plug 'tami5/lspsaga.nvim'
@@ -36,6 +40,9 @@ if has("nvim")
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'windwp/nvim-autopairs'
+  Plug 'lervag/vimtex'
+  Plug 'sirver/ultisnips'
+  Plug 'williamboman/nvim-lsp-installer'
 endif
 
 Plug 'groenewege/vim-less', { 'for': 'less' }

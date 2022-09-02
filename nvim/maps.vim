@@ -2,14 +2,13 @@
 
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
-
 " hhkb settings :(
-inoremap uh <esc>
+" inoremap uh <esc>
 nnoremap ; :
 vnoremap ; :
 nmap ,p :Prettier<Return>
 nmap ,t :TransparentEnable<Return>
-
+nmap ,v :VimtexView<Return>
 " Increment/decrement
 nnoremap + <C-a>
 nnoremap - <C-x>
@@ -38,10 +37,11 @@ vnoremap <silent> # :<C-U>
 "-----------------------------
 " Tabs
 
-" Open current directory
-nmap te :tabedit 
+" Oen current directory
+nmap te :tabedit
 nmap <S-Tab> :tabprev<Return>
 nmap <Tab> :tabnext<Return>
+nmap ,n :NERDTree<Return>
 
 "------------------------------
 " Windows
@@ -67,5 +67,6 @@ nmap <C-w><right> <C-w>>
 nmap <C-w><up> <C-w>+
 nmap <C-w><down> <C-w>-
 
-nmap <C-p> :w<CR>:!python3 %<CR>
-nmap <C-c> :w<CR>:!g++ % -o a -std=c++17<CR>:!./a<CR>
+nmap ,.p :w<CR>:!python3 %<CR>
+nmap ,.c :w<CR>:!g++ % -o a -std=c++20<CR>
+nmap ,.r :w<CR>:!./a<CR>

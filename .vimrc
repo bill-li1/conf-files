@@ -17,19 +17,19 @@ set incsearch
 set showmatch
 set hlsearch
 set gdefault
-noremap <space><space> :noh<cr>:call clearmatches()<cr>
 
 set virtualedit+=block
 
 nnoremap ; :
 vnoremap ; :
-inoremap uh <esc>
+" inoremap uh <esc>
 
-map <F1> :w <CR> :!g++-11 % -o a <CR>
-
+set background=dark
 set number
-set guicursor=
+set nu rnu 
+set re=2
+
+set scrolloff=8
 
 colorscheme gruvbox
-
-
+hi Normal guibg=NONE ctermbg=NONE

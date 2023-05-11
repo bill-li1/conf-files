@@ -17,18 +17,28 @@ return require('packer').startup(function(use)
 	  as = 'rose-pine',
   })
 
+  use { "catppuccin/nvim", as = "catppuccin" }
+
+  use({
+    "kyazdani42/nvim-tree.lua",
+    requires = {
+        "kyazdani42/nvim-web-devicons", -- optional, for file icons
+    },
+  })
+  use ('lewis6991/gitsigns.nvim')
+  use ('onsails/lspkind.nvim')
   use ('nvim-lualine/lualine.nvim')
   use ('lukas-reineke/indent-blankline.nvim')
   use ('windwp/nvim-autopairs')
   use ('windwp/nvim-ts-autotag')
   use ('jose-elias-alvarez/null-ls.nvim')
   use ('ellisonleao/gruvbox.nvim')
-
   use ({'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'})
   use ('nvim-treesitter/playground')
   use ('theprimeagen/harpoon')
   use ('mbbill/undotree')
   use ('tpope/vim-fugitive')
+  use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 
   use {
 	  'VonHeikemen/lsp-zero.nvim',
@@ -51,9 +61,7 @@ return require('packer').startup(function(use)
 		  {'rafamadriz/friendly-snippets'},
 	  }
   }
-
-  use("folke/zen-mode.nvim")
-  use("github/copilot.vim")
+  use("zbirenbaum/copilot.lua")
 
 end)
 

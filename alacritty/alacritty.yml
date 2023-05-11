@@ -1,19 +1,23 @@
-# located in ~/.config/alacritty/alacritty.yml
-
-font:
-  normal:
-    family: MesloLGS NF
-    style: Regular
-  bold:
-    family: MesloLGS NF
-    style: Bold
-  italic:
-    family: MesloLGS NF
-    style: Italic
-  bold_italic:
-    family: MesloLGS NF
-    style: Bold Italic
-  size: 11
+# font:
+#   normal:
+#     family: TempleOS
+#     style: Regular
+#   bold:
+#     family: TempleOS
+#     style: Bold
+#   italic:
+#     family: TempleOS
+#     style: Italic
+#   italic:
+#     family: TempleOS
+#     style: Italic
+#   italic_bold:
+#     family: TempleOS
+#     style: Bold Italic
+#   book:
+#     family: TempleOS
+#     style: Book
+#   size: 14
 colors:
   primary:
     background: "#282828"
@@ -36,3 +40,5 @@ colors:
     magenta: "#d3869b"
     cyan: "#8ec07c"
     white: "#ebdbb2"
+window:
+  decorations: Full

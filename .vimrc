@@ -1,6 +1,7 @@
 set nocompatible
-filetype off
+" set syntax=on
 syntax on
+filetype off
 
 " annoying
 set autoindent
@@ -19,10 +20,6 @@ set hlsearch
 set gdefault
 
 set virtualedit+=block
-
-nnoremap ; :
-vnoremap ; :
-" inoremap uh <esc>
 
 set background=dark
 set number

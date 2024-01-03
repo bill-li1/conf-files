@@ -8,15 +8,14 @@ return require('packer').startup(function(use)
   use ('wbthomason/packer.nvim')
 
   use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.0',
-	  requires = { {'nvim-lua/plenary.nvim'} }
-  }
+  'nvim-telescope/telescope.nvim', tag = '0.1.5',
+  requires = { {'nvim-lua/plenary.nvim'} }
+}
 
   use({
 	  'rose-pine/neovim',
 	  as = 'rose-pine',
   })
-
   use { "catppuccin/nvim", as = "catppuccin" }
 
   use({
@@ -29,8 +28,8 @@ return require('packer').startup(function(use)
   use ('onsails/lspkind.nvim')
   use ('nvim-lualine/lualine.nvim')
   use ('lukas-reineke/indent-blankline.nvim')
+  use ('nvim-treesitter/nvim-treesitter-context')
   use ('windwp/nvim-autopairs')
-  use ('windwp/nvim-ts-autotag')
   use ('jose-elias-alvarez/null-ls.nvim')
   use ('ellisonleao/gruvbox.nvim')
   use ({'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'})
@@ -38,6 +37,8 @@ return require('packer').startup(function(use)
   use ('theprimeagen/harpoon')
   use ('mbbill/undotree')
   use ('tpope/vim-fugitive')
+  use ('zbirenbaum/copilot.lua')
+  use ('f-person/git-blame.nvim')
   use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 
   use {
@@ -61,7 +62,6 @@ return require('packer').startup(function(use)
 		  {'rafamadriz/friendly-snippets'},
 	  }
   }
-  use("zbirenbaum/copilot.lua")
 
 end)
 

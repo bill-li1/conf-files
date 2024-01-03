@@ -57,4 +57,4 @@ function ColorMyPencils(color)
   vim.wo.cursorline = true
 end
 
-ColorMyPencils("catppuccin")
+ColorMyPencils("gruvbox")

@@ -3,7 +3,7 @@ if (not status) then return end
 
 require('lualine').setup {
   options = {
-    theme = 'catppuccin',
+    theme = 'gruvbox',
     component_separators = '|',
     section_separators = { left = '', right = '' },
   },

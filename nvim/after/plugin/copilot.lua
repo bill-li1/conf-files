@@ -6,7 +6,6 @@ require('copilot').setup({
       jump_prev = "[[",
       jump_next = "]]",
       accept = "<CR>",
-      refresh = "gr",
       open = "<M-CR>"
     },
     layout = {
@@ -17,11 +16,10 @@ require('copilot').setup({
   suggestion = {
     enabled = true,
     auto_trigger = true,
-    debounce = 75,
+    debounce = 45,
     keymap = {
-      accept = "<M-l>",
       accept_word = false,
-      accept_line = false,
+      -- accept_line = "<Tab>",
       next = "<M-]>",
       prev = "<M-[>",
       dismiss = "<C-]>",

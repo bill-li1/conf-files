@@ -1,12 +1,12 @@
 return {
 	{
-		"catppuccin/nvim",
+		"ellisonleao/gruvbox.nvim",
 		lazy = true,
-		name = "catppuccin",
+		name = "gruvbox",
 		priority = 1000,
 		opts = function()
 			return {
-				transparent_background = true,
+				transparent_mode = true,
 			}
 		end,
 	},

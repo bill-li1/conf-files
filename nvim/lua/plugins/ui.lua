@@ -43,8 +43,7 @@ return {
 		"akinsho/bufferline.nvim",
 		event = "VeryLazy",
 		keys = {
-			{ "<Tab>", "<Cmd>BufferLineCycleNext<CR>", desc = "Next tab" },
-			{ "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", desc = "Prev tab" },
+			{ "<S-Tab>", "<Cmd>BufferLineCycleNext<CR>", desc = "Prev tab" },
 		},
 		opts = {
 			options = {
@@ -72,7 +71,7 @@ return {
 		opts = {
 			options = {
 				-- globalstatus = false,
-				theme = "catppuccin-mocha",
+				theme = "gruvbox",
 				component_separators = "|",
 				section_separators = { left = "", right = "" },
 			},

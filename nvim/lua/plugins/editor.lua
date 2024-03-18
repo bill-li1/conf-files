@@ -1,4 +1,5 @@
 return {
+	-- lazy.nvim
 	{
 		"folke/flash.nvim",
 		event = "VeryLazy",
@@ -10,7 +11,6 @@ return {
 			},
 		},
 	},
-
 	{
 		"dinhhuy258/git.nvim",
 		event = "BufReadPre",

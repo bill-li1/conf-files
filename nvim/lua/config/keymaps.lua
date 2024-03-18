@@ -5,6 +5,9 @@ keymap.set("n", "x", '"_x')
 
 keymap.set("n", "te", ":tabedit")
 
+keymap.set("n", "<C-d>", "<C-d>zz")
+keymap.set("n", "<C-u>", "<C-u>zz")
+
 -- Increment/decrement
 keymap.set("n", "+", "<C-a>")
 keymap.set("n", "-", "<C-x>")
@@ -26,3 +29,8 @@ end, opts)
 keymap.set("n", ",p", function()
 	vim.diagnostic.goto_prev()
 end, opts)
+
+-- I keep messing these up
+vim.api.nvim_create_user_command("W", "write", {})
+vim.api.nvim_create_user_command("Wq", "wq", {})
+vim.api.nvim_create_user_command("Nu", "set nu rnu | se cursorline", {})

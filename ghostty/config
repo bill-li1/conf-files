@@ -1,0 +1,29 @@
+# fonts
+# font-family = MonoLisa
+font-family = Berkeley Mono
+
+font-size = 18
+
+# theme
+theme = GruvboxDark
+# theme = rose-pine-dawn
+cursor-color = #88bb55
+# cursor-color = #727272
+background = #070D0D
+
+# cursor
+# shell-integration-features = no-cursor
+# cursor-style-blink = true
+
+# macos
+title = business as usual
+macos-titlebar-proxy-icon = hidden
+
+adjust-cell-height = -10%
+adjust-cursor-height = -10%
+
+# Temple OS
+
+# font-family = TempleOS
+# adjust-cell-height = 25%
+# adjust-cursor-height = 25%

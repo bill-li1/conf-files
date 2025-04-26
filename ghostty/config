@@ -1,15 +1,15 @@
 # fonts
-# font-family = MonoLisa
-font-family = Berkeley Mono
+font-family = MonoLisa
+# font-family = Berkeley Mono
+# font-family = TempleOS
 
 font-size = 18
 
 # theme
 theme = GruvboxDark
-# theme = rose-pine-dawn
-cursor-color = #88bb55
+# cursor-color = #88bb55
 # cursor-color = #727272
-background = #070D0D
+background = #101010
 
 # cursor
 # shell-integration-features = no-cursor
@@ -27,3 +27,4 @@ adjust-cursor-height = -10%
 # font-family = TempleOS
 # adjust-cell-height = 25%
 # adjust-cursor-height = 25%
+

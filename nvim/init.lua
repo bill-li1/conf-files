@@ -28,7 +28,8 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 vim.opt.inccommand = 'split'
 vim.opt.cursorline = true
 vim.opt.scrolloff = 12
--- vim.opt.guicursor = ''
+vim.opt.swapfile = false
+vim.opt.guicursor = ''
 vim.opt.colorcolumn = '80'
 
 -- vim.opt.guicursor = 'n-v-c:block,i:ver30,r-cr:hor20'
@@ -61,6 +62,9 @@ vim.api.nvim_set_keymap('n', '<leader>cd', ':SupermavenToggle<CR>', { noremap = 
 vim.api.nvim_set_keymap('n', '<leader>b', ':!bun %<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>cc', ':!Python %<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '\\', ':e .<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '+', '<C-w>5>', { desc = 'Increase pane width' })
+vim.keymap.set('n', 'Z', '<C-w>5<', { desc = 'Decrease pane width' })
+vim.keymap.set('n', '<leader>z', '<C-w>=', { desc = 'Make pane equal width' })
 vim.cmd 'command! W w'
 vim.cmd 'command! Wq wq'
 
@@ -212,8 +216,8 @@ require('lazy').setup({
       require('nvim-ts-autotag').setup {
         opts = {
           -- Defaults
-          enable_close = true, -- Auto close tags
-          enable_rename = true, -- Auto rename pairs of tags
+          enable_close = true,           -- Auto close tags
+          enable_rename = true,          -- Auto rename pairs of tags
           enable_close_on_slash = false, -- Auto close on trailing </
         },
         -- Also override individual filetype configs, these take priority.
@@ -247,12 +251,39 @@ require('lazy').setup({
     'ThePrimeagen/harpoon',
     branch = 'harpoon2',
     config = function()
-      require('harpoon'):setup {
+      local harpoon = require('harpoon')
+
+      harpoon:setup {
+        menu = {
+          height = math.min(1600, vim.api.nvim_win_get_height(0) - 4),
+        },
         settings = {
           save_on_toggle = true,
           sync_on_ui_close = true,
         },
       }
+
+      harpoon:extend({
+        UI_CREATE = function(cx)
+          -- Set the window height to 16 lines after it's created
+          vim.api.nvim_win_set_height(cx.win_id, 16)
+
+          -- Get current window position
+          local win_pos = vim.api.nvim_win_get_position(cx.win_id)
+          local current_row = win_pos[1]
+
+          -- Move the window up by adjusting the row position
+          -- Decrease this number to move it further up
+          local new_row = math.max(current_row - 4, 1)
+
+          -- Set the new position
+          vim.api.nvim_win_set_config(cx.win_id, {
+            relative = 'editor',
+            row = new_row,
+            col = win_pos[2],
+          })
+        end,
+      })
     end,
     keys = {
       {
@@ -307,7 +338,7 @@ require('lazy').setup({
   --     -- See `:help ibl`
   --     main = 'ibl',
   --     opts = {
-  --       scope = { enabled = false },
+  --       scope = { enabled = true },
   --     },
   --   },
   -- },
@@ -365,7 +396,7 @@ require('lazy').setup({
   -- after the plugin has been loaded:
   --  config = function() ... end
 
-  { -- Useful plugin to show you pending keybinds.
+  {                     -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
     config = function() -- This is the function that runs, AFTER loading
@@ -410,10 +441,10 @@ require('lazy').setup({
 
       -- Document existing key chains
       require('which-key').add {
-        { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
+        { '<leader>c',  group = '[C]ode',  mode = { 'n', 'x' } },
         { '<leader>cr', group = '[R]ename' },
-        { '<leader>m', group = '[S]earch' },
-        { '<leader>g', group = '[G]it' },
+        { '<leader>m',  group = '[S]earch' },
+        { '<leader>g',  group = '[G]it' },
         -- { '<leader>t', group = '[T]oggle' },
         -- { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
       }
@@ -443,7 +474,7 @@ require('lazy').setup({
   { -- Fuzzy Finder (files, lsp, etc)
     'nvim-telescope/telescope.nvim',
     event = 'VimEnter',
-    branch = '0.1.x',
+    branch = 'master',
     dependencies = {
       'nvim-lua/plenary.nvim',
       { -- If encountering errors, see telescope-fzf-native README for installation instructions
@@ -462,7 +493,7 @@ require('lazy').setup({
       { 'nvim-telescope/telescope-ui-select.nvim' },
 
       -- Useful for getting pretty icons, but requires a Nerd Font.
-      { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+      { 'nvim-tree/nvim-web-devicons',            enabled = vim.g.have_nerd_font },
     },
     config = function()
       -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -498,10 +529,10 @@ require('lazy').setup({
           file_ignore_patterns = { 'node_modules', '.git', '.cache', '.next', '.nuxt', 'dist', 'build' },
           layout_strategy = 'vertical', -- Use vertical layout
           layout_config = {
-            width = 0.8, -- Adjust width of the Telescope window
-            height = 0.9, -- Adjust height of the full Telescope window
+            width = 0.8,                -- Adjust width of the Telescope window
+            height = 0.9,               -- Adjust height of the full Telescope window
             prompt_position = 'bottom', -- Keep the search bar at the top
-            mirror = true, -- Places the preview below the results
+            mirror = true,              -- Places the preview below the results
             -- other layout configuration here
           },
         },
@@ -517,8 +548,8 @@ require('lazy').setup({
                   local displayer = entry_display.create {
                     separator = ' ',
                     items = {
-                      { width = 30 }, -- Symbol first
-                      { width = 15 }, -- Type second (Function, Variable, etc.)
+                      { width = 30 },       -- Symbol first
+                      { width = 15 },       -- Type second (Function, Variable, etc.)
                       { remaining = true }, -- Path last
                     },
                   }
@@ -603,7 +634,7 @@ require('lazy').setup({
       },
     },
   },
-  { 'Bilal2453/luvit-meta', lazy = true },
+  { 'Bilal2453/luvit-meta',     lazy = true },
   -- {
   --   'pmizio/typescript-tools.nvim',
   --   dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
@@ -622,7 +653,7 @@ require('lazy').setup({
 
       -- Useful status updates for LSP.
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim',       opts = {} },
 
       -- Allows extra capabilities provided by nvim-cmp
       'hrsh7th/cmp-nvim-lsp',
@@ -713,7 +744,7 @@ require('lazy').setup({
           --
           -- When you move your cursor, the highlights will be cleared (the second autocommand).
           local client = vim.lsp.get_client_by_id(event.data.client_id)
-          if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
+          if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
             local highlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = false })
             vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
               buffer = event.buf,

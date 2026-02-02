@@ -1,30 +1,34 @@
 # fonts
-font-family = MonoLisa
+# font-family = SF Mono
+# font-family = MonoLisa
 # font-family = Berkeley Mono
-# font-family = TempleOS
+font-family = Comic Code Ligatures
 
-font-size = 18
+adjust-cursor-height = -6%
+adjust-cell-height = -6%
 
-# theme
-theme = GruvboxDark
-# cursor-color = #88bb55
-# cursor-color = #727272
-background = #101010
+font-size = 20
+background-opacity = 1
+# background-blur = 6
 
-# cursor
-# shell-integration-features = no-cursor
-# cursor-style-blink = true
-
-# macos
-title = business as usual
+# theme = Gruvbox Dark
+theme = Nord
+# theme = Rose Pine
+# theme = Catppuccin Mocha
+# theme = Solarized Dark Patched
+macos-window-buttons = hidden
 macos-titlebar-proxy-icon = hidden
+macos-icon = custom
+macos-custom-icon = ~/Desktop/Icons/chaewon.icns
+title = "alo, the boy who glid"
 
-adjust-cell-height = -10%
-adjust-cursor-height = -10%
+keybind = super+zero=increase_font_size:1
 
-# Temple OS
+quick-terminal-animation-duration = 0
+quick-terminal-size = 95%, 85%
+keybind = global:cmd+apostrophe=toggle_quick_terminal
 
-# font-family = TempleOS
-# adjust-cell-height = 25%
-# adjust-cursor-height = 25%
+cursor-color = #81bb59
+shell-integration-features = no-cursor
+background = #050607
 
